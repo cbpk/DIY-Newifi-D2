@@ -17,10 +17,10 @@ on:
 #      - master
 #    paths:
 #      - '.config'
-  schedule:
-    - cron: 0 8 */3 * *
-#  watch:
-#    types: started
+#  schedule:
+#    - cron: 0 8 */3 * *
+  watch:
+    types: started
 
 env:
   REPO_URL: https://github.com/Lienol/openwrt.git
@@ -158,7 +158,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       if: steps.tag.outputs.status == 'success' && !cancelled()
       env:
-        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.RELEASEs_TOKEN }}
       with:
         tag_name: ${{ env.RELEASE_TAG }}
         body_path: release.txt
